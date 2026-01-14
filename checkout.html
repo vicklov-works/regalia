@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Bridal Elegance</title>
+    <<link id="theme-link" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Regalia M&B</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="cart.html">Cart</a>
+            <a href="checkout.html">Checkout</a>
+            <button id="theme-toggle" class="btn-toggle">🌗</button>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="categories" style="padding: 4rem 3rem; max-width: 800px; margin: 0 auto;">
+        <h2>Checkout</h2>
+
+        <!-- Cart Summary -->
+        <div id="checkout-items" style="margin-bottom: 2rem;">
+            <!-- Items will be dynamically loaded from cart.js -->
+        </div>
+
+        <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 2rem;">
+            Total: <span id="checkout-total">$0.00</span>
+        </div>
+
+        <!-- Customer Info Form -->
+        <form id="checkout-form">
+            <label for="name">Full Name</label><br>
+            <input type="text" id="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+
+            <label for="address">Shipping Address</label><br>
+            <textarea id="address" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea><br>
+
+            <button type="submit" class="btn-primary">Place Order</button>
+        </form>
+
+        <!-- Confirmation Message -->
+        <div id="order-message" style="margin-top: 2rem; font-weight: 600; color: #d4af37;"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2026 Bridal Elegance. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Render checkout items
+        function renderCheckout() {
+            const container = document.getElementById("checkout-items");
+            const totalEl = document.getElementById("checkout-total");
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            container.innerHTML = "";
+
+            if (cart.length === 0) {
+                container.innerHTML = "<p>Your cart is empty.</p>";
+                totalEl.textContent = "$0.00";
+                return;
+            }
+
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const div = document.createElement("div");
+                div.style.display = "flex";
+                div.style.justifyContent = "space-between";
+                div.style.marginBottom = "1rem";
+                div.innerHTML = `
+                    <span>${item.name} (x${item.quantity})</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                container.appendChild(div);
+            });
+
+            totalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        renderCheckout();
+
+        // Handle form submission
+        document.getElementById("checkout-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const address = document.getElementById("address").value.trim();
+
+            if (!name || !email || !address) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Fake order processing
+            localStorage.removeItem("cart");
+            renderCheckout();
+            document.getElementById("checkout-form").reset();
+            document.getElementById("order-message").textContent = 
+                `Thank you, ${name}! Your order has been placed successfully.`;
+        });
+    </script>
+</body>
+</html>
+

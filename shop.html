@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Bridal Elegance</title>
+    <link id="theme-link" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Regalia M&B</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+            <a href="checkout.html">Checkout</a>
+            <button id="theme-toggle" class="btn-toggle">🌗</button>
+        </div>
+    </nav>
+
+    <!-- Shop Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Explore Our Bridal Accessories & Perfumes</h1>
+            <p>
+                Discover elegant fascinators, headbands, hand-fans, hats, and
+                exquisite perfume oils to complement your special day.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="categories shop-section">
+        <h2>Our Products</h2>
+
+        <!-- Products are dynamically injected here -->
+        <div class="category-grid" id="product-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2026 Bridal Elegance. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

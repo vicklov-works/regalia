@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Bridal Elegance</title>
+    <link id="theme-link" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Regalia M&B</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="checkout.html">Checkout</a>
+        <button id="theme-toggle" class="btn-toggle">🌗</button>
+    </div>
+</nav>
+
+<section class="hero" style="padding: 3rem 1rem;">
+    <div class="product-container" style="display: flex; gap: 2rem; max-width: 1200px; margin: auto;">
+
+        <div class="product-image">
+            <img id="product-img" alt="Product Image" style="width:100%; border-radius:8px;">
+        </div>
+
+        <div class="product-details">
+            <h2 id="product-name"></h2>
+            <p id="product-category"></p>
+            <p id="product-price"></p>
+            <p id="product-description"></p>
+            <button class="btn-primary btn-add-cart">Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    &copy; 2026 Bridal Elegance. All rights reserved.
+</footer>
+
+<script src="js/product.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
