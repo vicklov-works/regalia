@@ -382,12 +382,12 @@ a {
 /* Responsive – Light Theme */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         padding: 1rem 2rem;
         background-color: #ffffff;
     }
-
     .menu-toggle {
         display: block;
         color: #222;
