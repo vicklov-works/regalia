@@ -54,7 +54,10 @@ a {
 .nav-links a:hover {
     color: #d4af37;
 }
-
+ .menu-toggle {
+    display: none;
+ }
+ 
 /* Theme Toggle Button */
 .btn-toggle {
     background-color: transparent;
