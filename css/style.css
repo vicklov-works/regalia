@@ -25,10 +25,12 @@ a {
     align-items: center;
     padding: 1.2rem 3rem;
     background-color: rgba(0, 0, 0, 0.85);
-    position: sticky;
+    /*position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000;*/
+    position: relative;
 }
+
 
 .logo {
     font-size: 1.6rem;
@@ -40,7 +42,8 @@ a {
 /* navbar links */
 .nav-links {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
+    gap: 1.5rem;
 }
 
 .nav-links a {
@@ -48,10 +51,21 @@ a {
     font-size: 0.95rem;
     text-transform: uppercase;
     transition: color 0.3s ease;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
     color: #d4af37;
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #f5f5f5;
+    cursor: pointer;
 }
 
 /* Theme Toggle Button */
@@ -329,14 +343,36 @@ a {
         padding: 1rem 2rem;
     }
 
-    .nav-links {
+    .menu-toggle {
+        display: block;
+    }
+
+    /*.nav-links {
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
-    }
+    }*/
 
     .nav-links a, .btn-toggle {
         margin: 0.5rem 0;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #121212;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.5rem 0;
+        display: none;
+        border-top: 1px solid #333;
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 
     .hero-content h1 {
